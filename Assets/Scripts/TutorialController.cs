@@ -68,7 +68,7 @@ namespace Watermelon
 
                 UIGame gameUI = UIController.GetPage<UIGame>();
                 gameUI.SetReplayButtonVisibility(false);
-                gameUI.SetSkipButtonVisibility(false);
+                // gameUI.SetSkipButtonVisibility(false);
 
             }
             else

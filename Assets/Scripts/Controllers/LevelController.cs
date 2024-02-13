@@ -103,7 +103,7 @@ namespace Watermelon
             instance.StartCoroutine(LevelObjectsSpawner.SpawnBounceObstacles());
 
             UIGame gameUI = UIController.GetPage<UIGame>();
-            gameUI.SetSkipButtonVisibility(true);
+            // gameUI.SetSkipButtonVisibility(true);
 
             CameraController.ChangeAngleToGamePosition(CurrentLevel);
 
@@ -157,7 +157,7 @@ namespace Watermelon
 
             UIGame gameUI = UIController.GetPage<UIGame>();
             gameUI.SetReplayButtonVisibility(false);
-            gameUI.SetSkipButtonVisibility(false);
+            // gameUI.SetSkipButtonVisibility(false);
 
             CameraController.ChangeAngleToMenuPosition(CurrentLevel);
 

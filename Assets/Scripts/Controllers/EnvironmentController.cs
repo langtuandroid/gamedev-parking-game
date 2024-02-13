@@ -66,9 +66,9 @@ namespace Watermelon
             EnvironmentWinPanel = environmentWinPanel;
             EnvironmentStartPanel = environmentStartPanel;
 
-            Button getX3Button = environmentWinPanel.GetX3Button;
-            getX3Button.onClick.RemoveAllListeners();
-            getX3Button.onClick.AddListener(new UnityEngine.Events.UnityAction(GetX3Click));
+            // Button getX3Button = environmentWinPanel.GetX3Button;
+            // getX3Button.onClick.RemoveAllListeners();
+            // getX3Button.onClick.AddListener(new UnityEngine.Events.UnityAction(GetX3Click));
         }
 
         public void DisableTop()
@@ -143,28 +143,28 @@ namespace Watermelon
             CoinsRain.RainCoins(winAmountOfCoins);
         }
 
-        public void GetX3Click()
-        {
-            AdsManager.ShowRewardBasedVideo((finished) =>
-            {
-                if (finished)
-                {
-                    GameController.TurnsAfterRewardVideo = 0;
-                    CoinsRain.RainCoins(winAmountOfCoins * 4);
-                    winAmountOfCoins *= 5;
-                    UITouchHandler.Enabled = false;
-                    additionalCoinsAnimation = true;
-                }
-                else
-                {
-
-                    GameController.CollectCoins(winAmountOfCoins);
-                    GameController.TurnsAfterRewardVideo++;
-                    GameController.NextLevel();
-
-                }
-            });
-        }
+        // public void GetX3Click()
+        // {
+        //     AdsManager.ShowRewardBasedVideo((finished) =>
+        //     {
+        //         if (finished)
+        //         {
+        //             GameController.TurnsAfterRewardVideo = 0;
+        //             CoinsRain.RainCoins(winAmountOfCoins * 4);
+        //             winAmountOfCoins *= 5;
+        //             UITouchHandler.Enabled = false;
+        //             additionalCoinsAnimation = true;
+        //         }
+        //         else
+        //         {
+        //
+        //             GameController.CollectCoins(winAmountOfCoins);
+        //             GameController.TurnsAfterRewardVideo++;
+        //             GameController.NextLevel();
+        //
+        //         }
+        //     });
+        // }
 
         public void CollectCoins()
         {

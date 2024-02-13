@@ -158,49 +158,49 @@ namespace Watermelon.Store
 
         public static bool BuyProduct(ProductData product, bool select = true, bool free = false)
         {
-            if (product.IsUnlocked)
-                return SelectProduct(product);
-
-            if (free)
-            {
-                product.IsUnlocked = true;
-                if (select)
-                    SelectProduct(product);
-
-                return true;
-            }
-            else if (product.PurchType == ProductData.PurchaseType.InGameCurrency && CurrenciesController.HasAmount(product.Currency, product.Cost))
-            {
-                CurrenciesController.Substract(product.Currency, product.Cost);
-
-                product.IsUnlocked = true;
-                if (select)
-                    SelectProduct(product);
-
-                return true;
-            }
-            // note | this type can't return true or false because result is not defined during execution of this code
-            // right now result of this method is not used, but otherwise this logic needs to be improved
-            else if(product.PurchType == ProductData.PurchaseType.RewardedVideo)
-            {
-                AdsManager.ShowRewardBasedVideo((success) =>
-                {
-                    if(success)
-                    {
-                        product.RewardedVideoWatchedAmount++;
-
-                        if(product.RewardedVideoWatchedAmount >= product.Cost)
-                        {
-                            product.IsUnlocked = true;
-                            if (select)
-                                SelectProduct(product);
-                        }
-
-                        storeUI.InitStoreUI();
-                    }
-                });
-            }
-
+            // if (product.IsUnlocked)
+            //     return SelectProduct(product);
+            //
+            // if (free)
+            // {
+            //     product.IsUnlocked = true;
+            //     if (select)
+            //         SelectProduct(product);
+            //
+            //     return true;
+            // }
+            // else if (product.PurchType == ProductData.PurchaseType.InGameCurrency && CurrenciesController.HasAmount(product.Currency, product.Cost))
+            // {
+            //     CurrenciesController.Substract(product.Currency, product.Cost);
+            //
+            //     product.IsUnlocked = true;
+            //     if (select)
+            //         SelectProduct(product);
+            //
+            //     return true;
+            // }
+            // // note | this type can't return true or false because result is not defined during execution of this code
+            // // right now result of this method is not used, but otherwise this logic needs to be improved
+            // else if(product.PurchType == ProductData.PurchaseType.RewardedVideo)
+            // {
+            //     AdsManager.ShowRewardBasedVideo((success) =>
+            //     {
+            //         if(success)
+            //         {
+            //             product.RewardedVideoWatchedAmount++;
+            //
+            //             if(product.RewardedVideoWatchedAmount >= product.Cost)
+            //             {
+            //                 product.IsUnlocked = true;
+            //                 if (select)
+            //                     SelectProduct(product);
+            //             }
+            //
+            //             storeUI.InitStoreUI();
+            //         }
+            //     });
+            // }
+            //
             return false;
         }
 
